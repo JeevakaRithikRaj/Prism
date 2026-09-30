@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a11" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="prismFace1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.7" />
+    </linearGradient>
+    <linearGradient id="prismFace2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="prismFace3" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5" />
+    </linearGradient>
+    <linearGradient id="beamCyan" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="1" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="beamEmerald" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="1" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded rect with industrial border -->
+  <rect width="512" height="512" rx="110" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="8" />
+
+  <!-- Outer telemetry pulse rings -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.25" stroke-dasharray="8 12" />
+  <circle cx="256" cy="256" r="175" fill="none" stroke="#10b981" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="14 8" />
+
+  <!-- Incoming industrial sensor stream ray (white/cyan) -->
+  <path d="M 60 256 L 210 256" stroke="#ffffff" stroke-width="5" stroke-linecap="round" filter="url(#glow)" />
+  <circle cx="60" cy="256" r="6" fill="#38bdf8" />
+
+  <!-- Central 3D Prism Structure -->
+  <g filter="url(#glow)">
+    <!-- Top Face -->
+    <polygon points="256,120 370,240 256,280 142,240" fill="url(#prismFace1)" />
+    <!-- Left Face -->
+    <polygon points="142,240 256,280 256,380 170,330" fill="url(#prismFace2)" />
+    <!-- Right Face -->
+    <polygon points="370,240 256,280 256,380 342,330" fill="url(#prismFace3)" />
+
+    <!-- Prism Crisp Facet Edges -->
+    <line x1="256" y1="120" x2="370" y2="240" stroke="#bae6fd" stroke-width="3" />
+    <line x1="256" y1="120" x2="142" y2="240" stroke="#bae6fd" stroke-width="3" />
+    <line x1="256" y1="120" x2="256" y2="280" stroke="#ffffff" stroke-width="3.5" />
+    <line x1="142" y1="240" x2="256" y2="280" stroke="#bae6fd" stroke-width="3" />
+    <line x1="370" y1="240" x2="256" y2="280" stroke="#bae6fd" stroke-width="3" />
+    <line x1="256" y1="280" x2="256" y2="380" stroke="#ffffff" stroke-width="3.5" />
+    <line x1="142" y1="240" x2="170" y2="330" stroke="#38bdf8" stroke-width="2.5" />
+    <line x1="170" y1="330" x2="256" y2="380" stroke="#38bdf8" stroke-width="2.5" />
+    <line x1="370" y1="240" x2="342" y2="330" stroke="#38bdf8" stroke-width="2.5" />
+    <line x1="342" y1="330" x2="256" y2="380" stroke="#38bdf8" stroke-width="2.5" />
+  </g>
+
+  <!-- Refracted Dispersed Telemetry Laser Beams -->
+  <!-- Beam 1: Emerald (Health: 98%) -->
+  <path d="M 256 280 L 440 200" stroke="url(#beamEmerald)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" />
+  <circle cx="440" cy="200" r="5" fill="#34d399" />
+  <!-- Beam 2: Cyan (FFT Frequency 25.6 kHz) -->
+  <path d="M 256 280 L 450 256" stroke="url(#beamCyan)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" />
+  <circle cx="450" cy="256" r="5" fill="#22d3ee" />
+  <!-- Beam 3: Blue / Violet (RUL Remaining) -->
+  <path d="M 256 280 L 430 312" stroke="#818cf8" stroke-opacity="0.85" stroke-width="5" stroke-linecap="round" filter="url(#glow)" />
+  <circle cx="430" cy="312" r="5" fill="#818cf8" />
+
+  <!-- PRISM Brand Wordmark at bottom inside safe zone -->
+  <text x="256" y="440" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" letter-spacing="8" fill="#f8fafc">PRISM</text>
+  <text x="256" y="465" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="14" letter-spacing="3" fill="#38bdf8">PREDICTIVE AI</text>
+</svg>

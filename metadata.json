@@ -1,0 +1,6 @@
+{
+  "name": "PRISM Predictive Maintenance",
+  "description": "AI-driven predictive maintenance system for manufacturing plants with real-time sensor streams, health state classification, and explainable AI insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
